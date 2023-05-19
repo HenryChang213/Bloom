@@ -1,9 +1,12 @@
 from transformers import AutoTokenizer, AutoModelForCausalLM, AutoConfig
 
+import os
+bloom_7b1_path = os.environ.get("BLOOM_7B1_PATH")
+
 tokenizer = AutoTokenizer.from_pretrained("bigscience/bloom-7b1")
 model = AutoModelForCausalLM.from_pretrained("bigscience/bloom-7b1")
-tokenizer.save_pretrained("/home/hz0567/data/huggingface/hub/bigscience/bloom-7b1") # change this to your path
-model.save_pretrained("/home/hz0567/data/huggingface/hub/bigscience/bloom-7b1") # change this to your path
+tokenizer.save_pretrained(bloom_7b1_path) # change this to your path
+model.save_pretrained(bloom_7b1_path) # change this to your path
 
 # tokenizer = AutoTokenizer.from_pretrained("microsoft/bloom-deepspeed-inference-int8")
 # config = AutoConfig.from_pretrained("microsoft/bloom-deepspeed-inference-int8")

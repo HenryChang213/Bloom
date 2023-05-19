@@ -13,15 +13,19 @@ conda activate bloom
 This is a small model(~10GB) and can fit into one GPU: https://huggingface.co/bigscience/bloom-7b1.
 
 ### Download the model
-Specify the path where you want to store the model in line 3 and 4 in `download_model.py`. To download the model, run this on the home node as the computing nodes do not have Internet access:
+Specify the path where you want to store the model:
+
+```shell
+export BLOOM_7B1_PATH=/YOUR/PATH/TO/SAVE/BLOOM7B1
+```
+
+To download the model, run this on the home node as the computing nodes do not have Internet access:
 
 ```shell
 python download_model.py
 ```
 
 ### Test
-
-Change line 8 and 9 in `test_bloom_7b1.py` to the path your specified in `download_model.py`. You can modify the prompt in line 12 and 13 of `test_bloom_7b1.py`.
 
 Run bloom-7b1 on one GPU with:
 ```shell

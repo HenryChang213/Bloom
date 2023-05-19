@@ -5,8 +5,9 @@ import torch
 import sys
 import os
 
-model = BloomForCausalLM.from_pretrained("/home/hz0567/data/huggingface/hub/bigscience/bloom-7b1", device_map="auto",torch_dtype="auto") # change this to your path
-tokenizer = BloomTokenizerFast.from_pretrained("/home/hz0567/data/huggingface/hub/bigscience/bloom-7b1") # change this to your path
+bloom_7b1_path = os.environ.get("BLOOM_7B1_PATH")
+model = BloomForCausalLM.from_pretrained(bloom_7b1_path, device_map="auto",torch_dtype="auto") # change this to your path
+tokenizer = BloomTokenizerFast.from_pretrained(bloom_7b1_path) # change this to your path
 print(model.hf_device_map)
 
 prompt = "Question: who is smarter, Newton or Einstein Answer:" # change this to your prompt
